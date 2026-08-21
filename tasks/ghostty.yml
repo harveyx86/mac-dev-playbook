@@ -1,0 +1,26 @@
+---
+- name: Reload Ghostty configuration when Ghostty is running.
+  command:
+    argv:
+      - osascript
+      - -e
+      - 'if application "Ghostty" is not running then return "not running"'
+      - -e
+      - 'tell application "Ghostty"'
+      - -e
+      - 'set all_terminals to terminals'
+      - -e
+      - 'if (count of all_terminals) is 0 then return "no terminals"'
+      - -e
+      - 'repeat with current_terminal in all_terminals'
+      - -e
+      - 'perform action "reload_config" on current_terminal'
+      - -e
+      - 'end repeat'
+      - -e
+      - 'end tell'
+      - -e
+      - 'return "reloaded"'
+  register: ghostty_reload
+  changed_when: ghostty_reload.stdout == 'reloaded'
+  when: ansible_facts.system == 'Darwin'
