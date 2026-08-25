@@ -42,9 +42,20 @@ If you need to supply an SSH password (if you don't use SSH keys), make sure to 
 
 ### Running a specific set of tagged tasks
 
-You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook`'s `--tags` flag. The tags available are `dotfiles`, `homebrew`, `mas`, `extra-packages` and `osx`.
+You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook`'s `--tags` flag. The tags available are `dotfiles`, `homebrew`, `chrome-ai`, `mas`, `extra-packages` and `osx`.
 
     ansible-playbook main.yml -K --tags "dotfiles,homebrew"
+
+### Chrome AI
+
+The `chrome-ai` tag enables Gemini in Chrome, AI-powered history search, and
+DevTools AI features by cloning and running
+[lcandy2/enable-chrome-ai](https://github.com/lcandy2/enable-chrome-ai). The
+repository URL, checkout destination, and Git version are configurable with
+`chrome_ai_repo`, `chrome_ai_repo_local_destination`, and
+`chrome_ai_repo_version`.
+
+    ansible-playbook main.yml --tags chrome-ai
 
 ## Overriding Defaults
 

@@ -1,0 +1,18 @@
+---
+- name: Clone the enable-chrome-ai repository.
+  git:
+    repo: "{{ chrome_ai_repo }}"
+    dest: "{{ chrome_ai_repo_local_destination }}"
+    version: "{{ chrome_ai_repo_version }}"
+    update: true
+
+- name: Enable Gemini and Chrome AI features with the upstream helper.
+  command:
+    argv:
+      - uv
+      - run
+      - main.py
+    chdir: "{{ chrome_ai_repo_local_destination }}"
+    stdin: "\n"
+  register: chrome_ai_run
+  changed_when: "'Succeeded in patching Local State' in chrome_ai_run.stdout"

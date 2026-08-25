@@ -31,6 +31,10 @@
       when: configure_dotfiles
       tags: ['dotfiles', 'ghostty']
 
+    - import_tasks: tasks/chrome-ai.yml
+      when: configure_chrome_ai
+      tags: ['chrome-ai']
+
     - import_tasks: tasks/sudoers.yml
       when: configure_sudoers
       tags: ['sudoers']
