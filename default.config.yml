@@ -48,6 +48,7 @@ homebrew_installed_packages:
   - uv
   - ssh-copy-id
   - readline
+  - ripgrep
   - openssl
   - wget
   - zsh-history-substring-search
@@ -60,6 +61,7 @@ homebrew_cask_apps:
   - google-chrome
   - discord
   - chatgpt
+  - grok-bot
   - cursor
   - clash-verge-rev
   - logseq-og
@@ -67,6 +69,7 @@ homebrew_cask_apps:
   - ghostty
   - qqmusic
   - wechat
+  - librewolf
 
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
 mas_installed_apps: []
@@ -86,7 +89,8 @@ gem_packages: []
 # - name: bundler
 #   state: present # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A
-npm_packages: []
+npm_packages:
+  - name: "@jackwener/opencli"
 # - name: webpack
 #   state: present # present/absent/latest, default: present
 #   version: "^2.6" # default: N/A
