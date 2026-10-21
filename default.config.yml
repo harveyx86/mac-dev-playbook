@@ -69,7 +69,9 @@ homebrew_cask_apps:
   - ghostty
   - qqmusic
   - wechat
-  - librewolf
+  # Replace an unmanaged app so Homebrew can manage LibreWolf.
+  - name: librewolf
+    install_options: "appdir={{ homebrew_cask_appdir }},force"
 
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
 mas_installed_apps: []
