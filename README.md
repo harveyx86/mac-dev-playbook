@@ -46,6 +46,10 @@ You can filter which part of the provisioning process to run by specifying a set
 
     ansible-playbook main.yml -K --tags "dotfiles,homebrew"
 
+Rust and Cargo are installed through Homebrew's `rust` package by the
+`homebrew` tag. If `config.yml` overrides `homebrew_installed_packages`, include
+`rust` in that list as well.
+
 ### Chrome AI
 
 The `chrome-ai` tag enables Gemini in Chrome, AI-powered history search, and
@@ -140,6 +144,7 @@ Packages (installed with Homebrew):
   - php
   - ssh-copy-id
   - readline
+  - rust (includes Cargo)
   - openssl
   - pv
   - wget
