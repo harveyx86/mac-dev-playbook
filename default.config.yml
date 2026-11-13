@@ -74,6 +74,7 @@ homebrew_cask_apps:
   - name: librewolf
     install_options: "appdir={{ homebrew_cask_appdir }},force"
   - slack
+  - pdfcraft
 
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
 mas_installed_apps: []
